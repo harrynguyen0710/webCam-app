@@ -14,8 +14,10 @@ async function startCamera() {
   try {
     // access user camera
     cameraStream = await navigator.mediaDevices.getUserMedia({ video: true });
+
     // if user allows to access, assign the video stream to html element
     cameraVideoElement.srcObject = cameraStream;
+
   } catch (err) {
     console.error('Error accessing the camera: ', err);
   }
@@ -30,8 +32,10 @@ output: none
 function stopCamera() {
   // get tracks from camera stream
   let tracks = cameraStream.getTracks();
+
   // using loop to stop all tracks.
   tracks.forEach(track => track.stop());
+  
   // assign html element to null to stop displaying 
   cameraVideoElement.srcObject = null;
 }
@@ -45,18 +49,23 @@ output: none
 toggleCameraButton.addEventListener('click', () => {
   // if user click when camera is active
   if (isCameraOn) {
+
     // call stopCamera method
     stopCamera(); 
+
     // modify the content of the camera button
     toggleCameraButton.textContent = 'Turn Camera On';
   } 
   // if user click when camera is anactive
   else {
+
     // call the startCamera method to open camera
     startCamera();
+
     // modify the content of the camera button
     toggleCameraButton.textContent = 'Turn Camera Off';
   }
+  
   // change the value of the variable. if isCamera == True means the camera is active, else it's inactive
   isCameraOn = !isCameraOn;
 });
