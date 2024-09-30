@@ -1,0 +1,17 @@
+#videoContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.25rem;
+  }
+  
+  video {
+    width: 45%;
+    height: auto;
+    border: 0.125rem solid black;
+  }
+  
+  button {
+    margin-top: 0.625rem;
+    padding: 0.625rem;
+    font-size: 1rem;
+  }
